@@ -20,7 +20,8 @@ const userSchema = Schema({
 
 // module.exports = Post = mongoose.model('post', postSchema)
 const Post = mongoose.model('Post', postSchema);
-const User = mongoose.model('User', userSchema);
+// const User = mongoose.model('User', userSchema);
 
 export default Post
+
 

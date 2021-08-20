@@ -1,14 +1,25 @@
-// import mongoose from 'mongoose'
-// const { Schema, model } = mongoose;
-
-// const userSchema = new Schema({
-//     id: { type: Int, required: true },
-//     name: { type: String, required: true },
-//     email: { type: String, required: true },
+import mongoose from 'mongoose'
+const { Schema, model } = mongoose;
 
 
-// })
+const postSchema = Schema({
 
 
+    text: String,
+    date: { type: Date, default: Date.now },
 
-// export default model('User', userSchema)
+    user: { type: Schema.Types.ObjectId, ref: 'User' }
+});
+const userSchema = Schema({
+
+
+    // name: String,
+    email: String,
+    name: String
+})
+
+// module.exports = Post = mongoose.model('post', postSchema)
+//const Post = mongoose.model('Post', postSchema);
+const User = mongoose.model('User', userSchema);
+
+export default User

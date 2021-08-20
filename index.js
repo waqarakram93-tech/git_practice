@@ -2,6 +2,7 @@ import "dotenv/config.js";
 import express from "express";
 import cors from "cors";
 import postsRouter from "./routes/postsRouter.js";
+import usersRouter from "./routes/usersRouter.js";
 import errorHandler from "./middlewares/errorHandler.js";
 import "./db/test.js";
 
@@ -15,6 +16,7 @@ if (process.env.NODE_ENV !== "production") {
 app.use(cors());
 app.use(express.json());
 app.use("/posts", postsRouter);
+app.use("/users", usersRouter);
 
 app.all('*', (req, res) => res.status(404).json({ error: 'Not found' }));
 app.use(errorHandler);
