@@ -15,7 +15,7 @@ if (process.env.NODE_ENV !== "production") {
 app.use(cors());
 app.use(express.json());
 app.use("/posts", postsRouter);
-app.use('/abc', (req, res) => res.status(200).json({ mongo: process.env.MONGO_URI }))
+
 app.all('*', (req, res) => res.status(404).json({ error: 'Not found' }));
 app.use(errorHandler);
 
